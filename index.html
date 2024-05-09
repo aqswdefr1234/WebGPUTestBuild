@@ -20,6 +20,9 @@
       <div id="unity-warning"> </div>
     </div>
     <script>
+      if (!navigator.gpu) {
+        throw new Error("WebGPU not supported on this browser.");
+      }
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
           navigator.serviceWorker.register("ServiceWorker.js");
